@@ -19,6 +19,7 @@ public class ColoredRadioButton extends RadioButton {
         this.red = red;
         this.green = green;
         this.blue = blue;
+        setSelected(rgbValuesMatchColoredRadioButton());
         setupValueChangedListeners();
     }
 
@@ -33,5 +34,13 @@ public class ColoredRadioButton extends RadioButton {
                 }
             }
         });
+
+        pm.redProperty().addListener((observable, oldValue, newValue) -> setSelected(rgbValuesMatchColoredRadioButton()));
+        pm.greenProperty().addListener((observable, oldValue, newValue) -> setSelected(rgbValuesMatchColoredRadioButton()));
+        pm.blueProperty().addListener((observable, oldValue, newValue) -> setSelected(rgbValuesMatchColoredRadioButton()));
+    }
+
+    private boolean rgbValuesMatchColoredRadioButton() {
+        return pm.getRed() == red && pm.getGreen() == green && pm.getBlue() == blue;
     }
 }
