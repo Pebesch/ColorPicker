@@ -7,20 +7,20 @@ import javafx.scene.shape.Rectangle;
 public class ColorPreviewPane extends Rectangle {
     private IntegerProperty red, green, blue;
 
-    public ColorPreviewPane (IntegerProperty red, IntegerProperty blue, IntegerProperty green) {
+    public ColorPreviewPane (IntegerProperty red, IntegerProperty green, IntegerProperty blue) {
         this.setWidth(300);
         this.setHeight(150);
         this.red = red;
-        this.blue = blue;
         this.green = green;
-        this.setFill(Color.rgb(red.getValue(), blue.getValue(), green.getValue()));
+        this.blue = blue;
+        this.setFill(Color.rgb(red.getValue(), green.getValue(), blue.getValue()));
         setupChangeListener();
     }
 
     private void setupChangeListener() {
-        red.addListener((observable, oldValue, newValue) -> setFill(Color.rgb(red.getValue(), blue.getValue(), green.getValue())));
-        blue.addListener((observable, oldValue, newValue) -> setFill(Color.rgb(red.getValue(), blue.getValue(), green.getValue())));
-        green.addListener((observable, oldValue, newValue) -> setFill(Color.rgb(red.getValue(), blue.getValue(), green.getValue())));
+        red.addListener((observable, oldValue, newValue) -> setFill(Color.rgb(red.getValue(), green.getValue(), blue.getValue())));
+        green.addListener((observable, oldValue, newValue) -> setFill(Color.rgb(red.getValue(), green.getValue(), blue.getValue())));
+        blue.addListener((observable, oldValue, newValue) -> setFill(Color.rgb(red.getValue(), green.getValue(), blue.getValue())));
     }
 
 }
