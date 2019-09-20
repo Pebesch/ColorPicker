@@ -21,6 +21,22 @@ public class ColorPickerPM {
             this.red.set(red);
     }
 
+    public void brightenRed(int brightenBy) {
+        if (getRed() + brightenBy <= 255) {
+            setRed(getRed() + brightenBy);
+        } else {
+            setRed(255);
+        }
+    }
+
+    public void darkenRed(int darkenBy) {
+        if (getRed() - darkenBy >= 0) {
+            setRed(getRed() - darkenBy);
+        } else {
+            setRed(0);
+        }
+    }
+
     public int getGreen() {
         return green.get();
     }
@@ -34,6 +50,22 @@ public class ColorPickerPM {
             this.green.set(green);
     }
 
+    public void brightenGreen(int brightenBy) {
+        if (getGreen() + brightenBy <= 255) {
+            setGreen(getGreen() + brightenBy);
+        } else {
+            setGreen(255);
+        }
+    }
+
+    public void darkenGreen(int darkenBy) {
+        if (getGreen() - darkenBy >= 0) {
+            setGreen(getGreen() - darkenBy);
+        } else {
+            setGreen(0);
+        }
+    }
+
     public int getBlue() {
         return blue.get();
     }
@@ -45,5 +77,21 @@ public class ColorPickerPM {
     public void setBlue(int blue) {
         if(blue >= 0 && blue <= 255)
             this.blue.set(blue);
+    }
+
+    public void brightenBlue(int brightenBy) {
+        if (getBlue() + brightenBy <= 255) {
+            setBlue(getBlue() + brightenBy);
+        } else {
+            setBlue(255);
+        }
+    }
+
+    public void darkenBlue(int darkenBy) {
+        if (getBlue() - darkenBy >= 0) {
+            setBlue(getBlue() - darkenBy);
+        } else {
+            setBlue(0);
+        }
     }
 }

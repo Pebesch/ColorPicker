@@ -8,6 +8,7 @@ public class ColoredMenuItem extends MenuItem {
     public ColoredMenuItem(ColoredRadioButton button) {
         super("", button);
 
+        // Select Button on MenuItem select
         setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
