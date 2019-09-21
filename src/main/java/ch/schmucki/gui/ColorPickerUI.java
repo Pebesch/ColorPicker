@@ -19,7 +19,7 @@ public class ColorPickerUI extends VBox {
         redLane = new ColorLane(colorPM.redProperty(), "Red");
         greenLane = new ColorLane(colorPM.greenProperty(), "Green");
         blueLane = new ColorLane(colorPM.blueProperty(), "Blue");
-        colorPane = new ColorPreviewPane(colorPM.redProperty(), colorPM.greenProperty(), colorPM.blueProperty());
+        colorPane = new ColorPreviewPane(colorPM);
         getChildren().addAll(redLane, greenLane, blueLane, colorPane);
         group = new ToggleGroupColor(colorPM);
         getChildren().addAll(group.getGroupMembers());
