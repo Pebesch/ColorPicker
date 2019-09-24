@@ -7,14 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.util.StringConverter;
 
-public class ColorLane extends HBox {
+public class ColorLane extends GridPane {
     private IntegerProperty color;
     private String colorName;
     private Label colorLabel;
@@ -24,6 +21,15 @@ public class ColorLane extends HBox {
     public ColorLane(IntegerProperty color, String colorName) {
         this.color = color;
         this.colorName = colorName;
+        ColumnConstraints col1 = new ColumnConstraints();
+        col1.setPercentWidth(10);
+        ColumnConstraints col2 = new ColumnConstraints();
+        col2.setPercentWidth(40);
+        ColumnConstraints col3 = new ColumnConstraints();
+        col3.setPercentWidth(25);
+        ColumnConstraints col4= new ColumnConstraints();
+        col3.setPercentWidth(25);
+        getColumnConstraints().addAll(col1,col2,col3, col4);
         initializeControls();
         layoutControls();
         setupValueChangedListeners();
@@ -40,7 +46,10 @@ public class ColorLane extends HBox {
     }
 
     private void layoutControls() {
-        this.getChildren().addAll(colorLabel, colorSlider, colorDecimal, colorHex);
+        add(colorLabel, 0, 0);
+        add(colorSlider, 1, 0);
+        add(colorDecimal, 2, 0);
+        add(colorHex, 3, 0);
         for(Node control : this.getChildren()) {
             VBox.setMargin(control, new Insets(0, 0, 10, 0));
             VBox.setVgrow(control, Priority.ALWAYS);
